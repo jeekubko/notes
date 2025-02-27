@@ -1,4 +1,6 @@
 Hello
+<br>
+<%= link_to 'New Note', notes_new_path %>
 
 <table>
     <thead>
@@ -12,7 +14,7 @@ Hello
         <% @notes.each do |note| %>
         <tr>
             <td><%= note.id %></td>
-            <td><%= note.name %></td>
+            <td><%= link_to note.name, note %></td>
             <td><%= note.text %></td>
         </tr>
         <% end %>

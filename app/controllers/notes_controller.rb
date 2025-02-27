@@ -8,10 +8,11 @@ class NotesController < ApplicationController
     end
 
     def new
-      
     end
 
     def create
-      Note.create(name: params[:name], text: params[:text])
+      @note = Note.create(name: params[:name], text: params[:text])
+
+      redirect_to @note # note_url(id: @note.id) == note_url(@note.id) == note_url(@note) == @note --> All valid - Rails magic (using helper 'as: :note' in routes)
     end
 end
