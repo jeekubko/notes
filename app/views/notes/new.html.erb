@@ -1,0 +1,11 @@
+<%= form_with url: '/notes/create', method: :post do |f| %>
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div>
+    <div>
+        <%= f.label :text %>
+        <%= f.text_area :text %>
+    </div>
+    <%= f.submit 'Create' %>
+<% end %>
