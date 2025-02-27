@@ -1,3 +1,5 @@
 <h1><%= @item.title %></h1>
-<h3><%= @item.expected_cost %></h3>
-<h3><%= @item.is_done %></h3>
+<h3>Expected cost: <%= @item.expected_cost %></h3>
+<h3>Is done?: <%= @item.is_done %></h3>
+
+<%= link_to 'Back to Items', items_path %>

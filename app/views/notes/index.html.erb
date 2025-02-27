@@ -1,7 +1,7 @@
-Hello
-<br>
-<%= link_to 'New Note', notes_new_path %>
-
+<h1>All notes</h1>
+<h3>
+    <%= link_to 'New Note', notes_new_path %>
+</h3>
 <table>
     <thead>
         <tr>
@@ -20,3 +20,5 @@ Hello
         <% end %>
     </tbody>
 </table>
+<br>
+<strong><%= link_to 'Home', root_path %></strong>
