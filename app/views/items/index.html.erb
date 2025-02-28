@@ -1,7 +1,7 @@
 <h1>All items</h1>
 
 <h3>
-    <%= link_to 'Add new Item', items_new_path %>
+    <%= link_to 'Add new Item', new_item_path %>
 </h3>
 
 <table>
@@ -11,6 +11,7 @@
             <th>Title</th>
             <th>Expected cost</th>
             <th>Is done?</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
             <td><%= link_to item.title, item %></td>
             <td><%= item.expected_cost %></td>
             <td><%= item.is_done %></td>
+            <td><%= link_to 'Edit', edit_item_path(item) %></td>
         </tr>
         <% end %>
     </tbody>
