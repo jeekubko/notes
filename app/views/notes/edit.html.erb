@@ -1,15 +1,15 @@
 <h1>Edit note</h1>
 
-<%= form_with url: note_path, method: :patch do |f| %>
+<%= form_with model: @note do |f| %>
     <div>
         <%= f.label :name %>
-        <%= f.text_field :name, value: @note.name %>
+        <%= f.text_field :name %>
     </div>
     <div>
         <%= f.label :text %>
-        <%= f.text_area :text, value: @note.text %>
+        <%= f.text_area :text %>
     </div>
-    <%= f.submit 'Update' %>
+    <%= f.submit %>
 <% end %>
 <br>
 <%= link_to 'Back to Notes', notes_path %>
