@@ -12,7 +12,7 @@ class NotesController < ApplicationController
     end
 
     def create
-      @note = Note.create(name: params[:note][:name], text: params[:note][:text])
+      @note = Note.create(note_params)
 
       redirect_to @note # note_url(id: @note.id) == note_url(@note.id) == note_url(@note) == @note --> All valid - Rails magic (using helper 'as: :note' in routes)
     end
@@ -24,7 +24,7 @@ class NotesController < ApplicationController
     def update
       @note = Note.find(params[:id])
 
-      @note.update(name: params[:note][:name], text: params[:note][:text])
+      @note.update(note_params)
 
       redirect_to @note
     end
@@ -35,5 +35,11 @@ class NotesController < ApplicationController
       @note.delete
   
       redirect_to notes_url
+    end
+
+    private
+
+    def note_params
+      params.require(:note).permit(:name, :text)
     end
 end
