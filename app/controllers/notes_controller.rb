@@ -1,45 +1,44 @@
 class NotesController < ApplicationController
-    def index
-      @notes = Note.all
-    end
+  before_action :set_note, only: [:show, :edit, :update, :destroy]
 
-    def show
-      @note = Note.find(params[:id])
-    end
+  def index
+    @notes = Note.all
+  end
 
-    def new
-      @note = Note.new
-    end
+  def show
+  end
 
-    def create
-      @note = Note.create(note_params)
+  def new
+    @note = Note.new
+  end
 
-      redirect_to @note # note_url(id: @note.id) == note_url(@note.id) == note_url(@note) == @note --> All valid - Rails magic (using helper 'as: :note' in routes)
-    end
+  def create
+    @note = Note.create(note_params)
+    redirect_to @note # note_url(id: @note.id) == note_url(@note.id) == note_url(@note) == @note --> All valid - Rails magic (using helper 'as: :note' in routes)
+  end
 
-    def edit
-      @note = Note.find(params[:id])
-    end
+  def edit
+  end
 
-    def update
-      @note = Note.find(params[:id])
+  def update
+    @note.update(note_params)
+    
+    redirect_to @note
+  end
 
-      @note.update(note_params)
-
-      redirect_to @note
-    end
-
-    def destroy
-      @note = Note.find(params[:id])
-
-      @note.delete
+  def destroy
+    @note.delete
   
-      redirect_to notes_url
-    end
+    redirect_to notes_url
+  end
 
-    private
+  private
 
-    def note_params
-      params.require(:note).permit(:name, :text)
-    end
+  def note_params
+    params.require(:note).permit(:name, :text)
+  end
+
+  def set_note
+    @note = Note.find(params[:id])
+  end
 end
