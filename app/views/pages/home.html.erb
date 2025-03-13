@@ -1,5 +1,12 @@
-<h1>Welcome to my homepage</h1>
-<ul>
-    <li><%= link_to 'Notes', notes_path %></li>
-    <li><%= link_to 'Items', items_path %></li>
-</ul>
+<h1 class="text-slate-800 text-4xl">Welcome to my homepage</h1>
+
+<div class="flex justify-evenly mt-8 text-slate-800">
+    <div class="w-60 h-30 flex justify-center items-center bg-amber-50 rounded-md shadow-md hover:bg-amber-100 transition">
+        <%= link_to 'Notes', notes_path, class: "text-4xl" %>
+    </div>
+    <div class="w-60 h-30 flex justify-center items-center bg-amber-50 rounded-md shadow-md hover:bg-amber-100 transition">
+        <%= link_to 'Items', items_path, class: "text-4xl" %>
+    </div>
+</div>
+
+
