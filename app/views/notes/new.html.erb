@@ -1,6 +1,5 @@
-<h1>New Note</h1>
-
-<%= render 'form', submit_text: 'Create' %>
-
-<br>
-<%= link_to 'Back to Notes', notes_path %>
+<div class="mx-2">
+    <%= link_to '<- Back to Notes', notes_path, class:'text-slate-800 hover:text-slate-950' %>
+    <h1 class="text-slate-800 font-bold text-lg mt-2">New Note</h1>
+    <%= render 'form', submit_text: 'Create' %>
+</div>

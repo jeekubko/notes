@@ -1,4 +1,7 @@
-<h1><%= @note.name %></h1>
-<p><%= @note.text %></p>
+<div class="mx-2">
+    <%= link_to '<- Back to Notes', notes_path, class:'text-slate-800 hover:text-slate-950' %>
 
-<%= link_to 'Back to Notes', notes_path %>
+    <h1 class="text-xl mt-6"><%= @note.name %></h1>
+    <p class="mt-2"><%= @note.text %></p>
+</div>
+
