@@ -16,5 +16,5 @@
             <%= f.text_area :text, class: 'border border-slate-300 rounded-sm px-2 w-full' %>
         </div>
     </div>
-    <%= f.submit submit_text, class: 'px-4 py-1 border border-slate-300 rounded-sm mt-4 shadow-md hover:bg-amber-50 transition' %>
+    <%= f.submit submit_text, params: { item: { is_done: true } }, class: 'px-4 py-1 border border-slate-300 rounded-sm mt-4 shadow-md hover:bg-amber-50 transition' %>
 <% end %>

@@ -1,5 +1,8 @@
-<h1><%= @item.title %></h1>
-<h3>Expected cost: <%= @item.expected_cost %></h3>
-<h3>Is done?: <%= @item.is_done %></h3>
+<div class="mx-2">
+    <%= link_to '<- Back to Items', items_path, class:'text-slate-800 hover:text-slate-950' %>
 
-<%= link_to 'Back to Items', items_path %>
+    <h1 class="text-xl mt-6"><%= @item.title %></h1>
+    <p class="mt-2">Expected cost: <%= @item.expected_cost %></p>
+    <p class="mt-2">Is done?: <%= @item.is_done %></p>
+</div>
+

@@ -1,33 +1,32 @@
-<h1>All items</h1>
+<%= link_to '<- Back home', root_path, class:'text-slate-800 hover:text-slate-950 mx-4' %>
 
-<h3>
-    <%= link_to 'Add new Item', new_item_path %>
-</h3>
+<div class="flex justify-between items-center mx-4 mt-4">
+    <h1 class="text-2xl">Items</h1>
+    <%= link_to 'Add new Item', new_item_path, class: 'px-2 py-1 border border rounded-sm' %>
+</div>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Expected cost</th>
-            <th>Is done?</th>
-            <th colspan="2">Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @items.each do |item| %>
-        <tr>
-            <td><%= item.id %></td>
-            <td><%= link_to item.title, item %></td>
-            <td><%= item.expected_cost %></td>
-            <td><%= item.is_done %></td>
-            <td><%= link_to 'Edit', edit_item_path(item) %></td>
-            <td>
-                <%= button_to 'Delete', item, method: :delete %>
-            </td>
-        </tr>
+<section class="mt-6 grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-4 gap-y-4">
+    <% @items.each do |item| %>
+        <% unless item.is_done %>
+            <div class=" flex justify-between items-center mx-4 shadow-md bg-stone-50 p-3 rounded-md transition hover:bg-stone-100 hover:border-t border-lime-300 ease-in-out hover:-translate-y-1 hover:scale-101 duration-200">
+                <div>
+                    <h2 class="font-bold"><%= item.title %></h1>
+                    <p><%= item.expected_cost %></p>
+                </div>
+                <div>
+                    <%= button_to 'Done!', item, method: :patch, params: { item: { is_done: true } }, class: 'border px-2 py-1 rounded-sm hover:border-2' %>
+                </div>
+            </div>
+        <% else %>
+            <div class=" flex justify-between items-center mx-4 shadow-md bg-lime-50 p-3 rounded-md transition hover:bg-lime-100 hover:border-t border-rose-300 ease-in-out hover:-translate-y-1 hover:scale-101 duration-200">
+                <div>
+                    <h2 class="font-bold"><%= item.title %></h1>
+                    <p><%= item.expected_cost %></p>
+                </div>
+                <div>
+                    <%= button_to 'Delete', item, method: :delete, class: 'border border-rose-300 text-rose-500 bg-rose-100 px-2 py-1 rounded-sm hover:border-2' %>
+                </div>
+            </div>
         <% end %>
-    </tbody>
-</table>
-<br>
-<strong><%= link_to 'Home', root_path %></strong>
+    <% end %>
+</section>
